@@ -29,7 +29,7 @@ class BmlConnectLaravelServiceProvider extends ServiceProvider implements Deferr
             $mode = Arr::get($config, 'mode');
             $client_options = Arr::get($config, 'client_options');
 
-            return new Client($api_key, $app_id, $mode ?: 'production', $client_options ?: []);
+            return new Client($api_key ?: '', $app_id ?: '', $mode ?: 'production', $client_options ?: []);
         });
 
         // Register the main class to use with the facade
