@@ -1,0 +1,55 @@
+{
+    "name": "javaabu/bml-connect-laravel",
+    "description": "Laravel wrapper for BML Connect PHP SDK",
+    "keywords": [
+        "javaabu",
+        "bml-connect-laravel"
+    ],
+    "homepage": "https://github.com/javaabu/bml-connect-laravel",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Javaabu Pvt. Ltd.",
+            "email": "info@javaabu.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "bankofmaldives/bml-connect-php": "^2.0",
+        "illuminate/support": "^5.5|^6|^7"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Javaabu\\BmlConnectLaravel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Javaabu\\BmlConnectLaravel\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Javaabu\\BmlConnectLaravel\\BmlConnectLaravelServiceProvider"
+            ],
+            "aliases": {
+                "BMLConnect": "Javaabu\\BmlConnectLaravel\\BmlConnectLaravelFacade"
+            }
+        }
+    }
+}
