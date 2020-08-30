@@ -3,7 +3,11 @@
     "description": "Laravel wrapper for BML Connect PHP SDK",
     "keywords": [
         "javaabu",
-        "bml-connect-laravel"
+        "bml-connect-laravel",
+        "bml",
+        "bank of maldives",
+        "maldives",
+        "bank"
     ],
     "homepage": "https://github.com/javaabu/bml-connect-laravel",
     "license": "MIT",
