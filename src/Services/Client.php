@@ -6,25 +6,19 @@ namespace Javaabu\BmlConnect\Services;
 use BMLConnect\Transactions;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Str;
 
 /**
  * Methods from \BMLConnect\Client has been rewritten
  * since the original class properties had private access
  * and the endpoints had to be modified to allow support
  * for cancel action
- * 
+ *
  * @package Javaabu\BmlConnect\Services
  */
 
 class Client extends \BMLConnect\Client
 {
-    // endpoints modified to support cancel operation
-    const BML_SANDBOX_ENDPOINT = 'https://api.uat.merchants.bankofmaldives.com.mv/';
-    const BML_PRODUCTION_ENDPOINT = 'https://api.merchants.bankofmaldives.com.mv/';
-    const BML_API_VERSION = '2.0';
-    const BML_APP_VERSION = 'bml-connect-php';
-    const BML_SIGN_METHOD = 'sha1';
-
     /**
      * @var \GuzzleHttp\Client
      */
@@ -120,7 +114,13 @@ class Client extends \BMLConnect\Client
      */
     protected function buildUrl($endpoint)
     {
-        return $this->base_url . $endpoint;
+        $base_url = $this->base_url;
+
+        if ($endpoint == 'transactions/cancel') {
+            $base_url = Str::beforeLast($base_url, 'public/');
+        }
+
+        return $base_url . $endpoint;
     }
 
     /**
@@ -158,10 +158,6 @@ class Client extends \BMLConnect\Client
      */
     public function get(string $endpoint, array $pagination = [])
     {
-        if ($endpoint == 'transactions') {
-            $endpoint = 'public/' . $endpoint;
-        }
-
         $response = $this->http_client->request(
             'GET',
             $this->setPagination($this->buildUrl($endpoint), $pagination)
