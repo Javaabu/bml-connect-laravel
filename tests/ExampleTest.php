@@ -1,18 +1,18 @@
 <?php
 
-namespace Javaabu\BmlConnectLaravel\Tests;
+namespace Javaabu\BmlConnect\Tests;
 
 use Orchestra\Testbench\TestCase;
-use Javaabu\BmlConnectLaravel\BmlConnectLaravelServiceProvider;
+use Javaabu\BmlConnect\BmlConnectServiceProvider;
 
 class ExampleTest extends TestCase
 {
 
     protected function getPackageProviders($app)
     {
-        return [BmlConnectLaravelServiceProvider::class];
+        return [BmlConnectServiceProvider::class];
     }
-    
+
     /** @test */
     public function true_is_true()
     {

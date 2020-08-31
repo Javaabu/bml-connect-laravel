@@ -1,13 +1,13 @@
 <?php
 
-namespace Javaabu\BmlConnectLaravel;
+namespace Javaabu\BmlConnect\Providers;
 
-use BMLConnect\Client;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
+use Javaabu\BmlConnect\BmlConnect;
 
-class BmlConnectLaravelServiceProvider extends ServiceProvider implements DeferrableProvider
+class BmlConnectServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Bootstrap the application services.
@@ -22,19 +22,19 @@ class BmlConnectLaravelServiceProvider extends ServiceProvider implements Deferr
      */
     public function register()
     {
-        $this->app->singleton(Client::class, function () {
+        $this->app->singleton(BmlConnect::class, function () {
             $config = $this->app['config']['services.bml_connect'];
             $api_key = Arr::get($config, 'api_key');
             $app_id = Arr::get($config, 'app_id');
             $mode = Arr::get($config, 'mode');
             $client_options = Arr::get($config, 'client_options');
 
-            return new Client($api_key ?: '', $app_id ?: '', $mode ?: 'production', $client_options ?: []);
+            return new BmlConnect($api_key ?: '', $app_id ?: '', $mode ?: 'production', $client_options ?: []);
         });
 
         // Register the main class to use with the facade
         $this->app->singleton('bml-connect', function () {
-            return $this->app->make(Client::class);
+            return $this->app->make(BmlConnect::class);
         });
     }
 
@@ -45,6 +45,6 @@ class BmlConnectLaravelServiceProvider extends ServiceProvider implements Deferr
      */
     public function provides()
     {
-        return [Client::class];
+        return [BmlConnect::class];
     }
 }

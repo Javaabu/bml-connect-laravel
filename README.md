@@ -20,13 +20,13 @@ composer require javaabu/bml-connect-laravel
 After updating composer, add the ServiceProvider to the providers array in config/app.php
 
 ``` bash
-Javaabu\BmlConnectLaravel\BmlConnectLaravelServiceProvider::class;
+Javaabu\BmlConnect\Providers\BmlConnectServiceProvider::class;
 ```
 
 Optionally you can use the Facade for shorter code. Add this to your facades:
 
 ``` bash
-'BMLConnect' => Javaabu\BmlConnectLaravel\BmlConnectLaravelFacade::class;
+'BMLConnect' => Javaabu\BmlConnect\Facades\BmlConnectFacade::class;
 ```
 
 ### Setting up the BML Connect credentials
@@ -61,7 +61,7 @@ $json = [
  "redirectUrl" => "https://foo.bar/order/123" // Optional redirect after payment completion
 ];
 
-$transaction = $client->transactions->create($json);
+$transaction = $bml_connect->createTransaction($json);
 ```
 
 Using the Facade
@@ -75,7 +75,16 @@ $json = [
  "redirectUrl" => "https://foo.bar/order/123" // Optional redirect after payment completion
 ];
 
-$bml_connect = BMLConnect::transactions->create($json);
+$bml_connect = BMLConnect::createTransaction($json);
+```
+
+### Available Methods
+
+``` php
+BMLConnect::createTransaction($json);
+BMLConnect::listTransactions($params);
+BMLConnect::getTransaction($id);
+BMLConnect::cancelTransaction($id);
 ```
 
 ### Testing

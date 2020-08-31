@@ -1,13 +1,10 @@
 <?php
 
-namespace Javaabu\BmlConnectLaravel;
+namespace Javaabu\BmlConnect\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \Javaabu\BmlConnectLaravel\Skeleton\SkeletonClass
- */
-class BmlConnectLaravelFacade extends Facade
+class BmlConnectFacade extends Facade
 {
     /**
      * Get the registered name of the component.

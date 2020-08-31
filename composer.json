@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Javaabu\\BmlConnectLaravel\\": "src"
+            "Javaabu\\BmlConnect\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Javaabu\\BmlConnectLaravel\\Tests\\": "tests"
+            "Javaabu\\BmlConnect\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +49,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Javaabu\\BmlConnectLaravel\\BmlConnectLaravelServiceProvider"
+                "Javaabu\\BmlConnect\\Providers\\BmlConnectServiceProvider"
             ],
             "aliases": {
-                "BMLConnect": "Javaabu\\BmlConnectLaravel\\BmlConnectLaravelFacade"
+                "BMLConnect": "Javaabu\\BmlConnect\\Facades\\BmlConnectFacade"
             }
         }
     }
