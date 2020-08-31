@@ -12,6 +12,11 @@ class BmlConnect
     protected $client;
 
     /**
+     * @var string
+     */
+    private $api_key;
+
+    /**
      * Constructor
      *
      * @param string $api_key
@@ -27,6 +32,8 @@ class BmlConnect
     )
     {
         $this->client = new Client($api_key, $app_id, $mode, $client_options);
+
+        $this->api_key = $api_key;
     }
 
     /**
@@ -57,7 +64,7 @@ class BmlConnect
      * @param array $params
      * @return mixed
      */
-    public function listTransactions(array $params)
+    public function listTransactions(array $params = [])
     {
         return $this->client->transactions->list($params);
     }
@@ -73,4 +80,26 @@ class BmlConnect
     {
         return $this->client->post('transactions/cancel', compact('id'));
     }
+
+    /**
+     * Make a signature
+     *
+     * @param $amount
+     * @param string $currency
+     * @param string $method
+     * @return string
+     */
+    public function makeSignature($amount, string $currency, $method = 'sha1')
+    {
+        $str = 'amount='.$amount.
+            '&currency='.$currency.
+            '&apiKey='.$this->api_key;
+
+        if ($method == 'md5') {
+            return md5($str);
+        }
+
+        return sha1($str);
+    }
+
 }

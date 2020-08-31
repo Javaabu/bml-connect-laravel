@@ -82,9 +82,10 @@ $bml_connect = BMLConnect::createTransaction($json);
 
 ``` php
 BMLConnect::createTransaction($json);
-BMLConnect::listTransactions($params);
+BMLConnect::listTransactions($params = []);
 BMLConnect::getTransaction($id);
 BMLConnect::cancelTransaction($id);
+BMLConnect::makeSignature($amound, $currency, $method = 'sha1');
 ```
 
 ### Testing
