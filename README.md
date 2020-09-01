@@ -84,6 +84,7 @@ $bml_connect = BMLConnect::createTransaction($json);
 BMLConnect::createTransaction($json);
 BMLConnect::listTransactions($params = []);
 BMLConnect::getTransaction($id);
+BMLConnect::cancelTransactionUrl($id);
 BMLConnect::cancelTransaction($id);
 BMLConnect::makeSignature($amound, $currency, $method = 'sha1');
 ```
