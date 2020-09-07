@@ -6,8 +6,8 @@ use Javaabu\BmlConnect\Services\Client;
 
 class BmlConnect
 {
-    const TRANSACTIONS_SANDBOX_ENDPOINT = 'https://transactions.uat.merchants.bankofmaldives.com.mv/';
-    const TRANSACTIONS_PRODUCTION_ENDPOINT = 'https://transactions.merchants.bankofmaldives.com.mv/';
+    const TRANSACTIONS_SANDBOX_ENDPOINT = 'https://transaction.uat.merchants.bankofmaldives.com.mv/';
+    const TRANSACTIONS_PRODUCTION_ENDPOINT = 'https://transaction.merchants.bankofmaldives.com.mv/';
 
     /**
      * @var Client
