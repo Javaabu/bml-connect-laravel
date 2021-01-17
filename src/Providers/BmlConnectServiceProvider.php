@@ -2,12 +2,11 @@
 
 namespace Javaabu\BmlConnect\Providers;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Javaabu\BmlConnect\BmlConnect;
 
-class BmlConnectServiceProvider extends ServiceProvider implements DeferrableProvider
+class BmlConnectServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
