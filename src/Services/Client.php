@@ -117,10 +117,32 @@ class Client extends \BMLConnect\Client
         $base_url = $this->base_url;
 
         if ($endpoint == 'transactions/cancel') {
-            $base_url = Str::beforeLast($base_url, 'public/');
+            $base_url = $this->strBeforeLast($base_url, 'public/');
         }
 
         return $base_url . $endpoint;
+    }
+    
+    /**
+     * Str before last
+     * 
+     * @param $subject
+     * @param $search
+     * @return false|string
+     */
+    protected function strBeforeLast($subject, $search)
+    {
+        if ($search === '') {
+            return $subject;
+        }
+
+        $pos = mb_strrpos($subject, $search);
+
+        if ($pos === false) {
+            return $subject;
+        }
+
+        return substr($subject, 0, $pos);
     }
 
     /**
