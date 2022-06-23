@@ -122,10 +122,10 @@ class Client extends \BMLConnect\Client
 
         return $base_url . $endpoint;
     }
-    
+
     /**
      * Str before last
-     * 
+     *
      * @param $subject
      * @param $search
      * @return false|string
@@ -151,7 +151,7 @@ class Client extends \BMLConnect\Client
      */
     protected function parseResponse(Response $response)
     {
-        $stream = \GuzzleHttp\Psr7\stream_for($response->getBody());
+        $stream = \GuzzleHttp\Psr7\Utils::streamFor($response->getBody());
         $data = json_decode($stream);
 
         return $data;
