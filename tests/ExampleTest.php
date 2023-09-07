@@ -2,8 +2,8 @@
 
 namespace Javaabu\BmlConnect\Tests;
 
+use Javaabu\BmlConnect\Providers\BmlConnectServiceProvider;
 use Orchestra\Testbench\TestCase;
-use Javaabu\BmlConnect\BmlConnectServiceProvider;
 
 class ExampleTest extends TestCase
 {
