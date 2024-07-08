@@ -86,7 +86,7 @@ BMLConnect::listTransactions($params = []);
 BMLConnect::getTransaction($id);
 BMLConnect::cancelTransactionUrl($id);
 BMLConnect::cancelTransaction($id);
-BMLConnect::makeSignature($amound, $currency, $method = 'sha1');
+BMLConnect::makeSignature($amount, $currency, $method = 'sha1');
 ```
 
 ### Testing
