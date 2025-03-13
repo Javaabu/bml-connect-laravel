@@ -1,8 +1,8 @@
 # BML Connect Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/javaabu/bml-connect-laravel.svg?style=flat-square)](https://packagist.org/packages/javaabu/bml-connect-laravel)
-[![Build Status](https://img.shields.io/travis/javaabu/bml-connect-laravel/master.svg?style=flat-square)](https://travis-ci.org/javaabu/bml-connect-laravel)
-[![Quality Score](https://img.shields.io/scrutinizer/g/javaabu/bml-connect-laravel.svg?style=flat-square)](https://scrutinizer-ci.com/g/javaabu/bml-connect-laravel)
+[![Test Status](../../actions/workflows/run-tests.yml/badge.svg)](../../actions/workflows/run-tests.yml)
+![Code Coverage Badge](./.github/coverage.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/javaabu/bml-connect-laravel.svg?style=flat-square)](https://packagist.org/packages/javaabu/bml-connect-laravel)
 
 Laravel wrapper for [BML Connect PHP SDK](https://github.com/bankofmaldives/bml-connect-php).
