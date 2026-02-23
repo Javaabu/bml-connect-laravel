@@ -9,8 +9,7 @@ use Javaabu\BmlConnect\BmlConnect;
 class BmlConnectTest extends TestCase
 {
 
-    /** @test */
-    public function it_can_make_a_bml_connect_instance()
+    public function test_it_can_make_a_bml_connect_instance()
     {
         $bml_connect = App::make('bml-connect');
 
