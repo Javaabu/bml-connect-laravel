@@ -48,6 +48,9 @@
         "sort-packages": true
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "0.6-dev"
+        },
         "laravel": {
             "providers": [
                 "Javaabu\\BmlConnect\\Providers\\BmlConnectServiceProvider"
@@ -56,5 +59,7 @@
                 "BMLConnect": "Javaabu\\BmlConnect\\Facades\\BmlConnectFacade"
             }
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
